@@ -1,7 +1,9 @@
 # Computercraft
 My Personal Computercraft Scripts
-Link: http://www.computercraft.info/
-These have only been run in Computercraft 1.6
+
+Link to Mod: http://www.computercraft.info/
+
+#Note:These have only been run in Computercraft 1.6
 
 Links to http://turtlescripts.com
 
