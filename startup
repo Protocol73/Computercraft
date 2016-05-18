@@ -1,4 +1,4 @@
-local password = "mblaw1324"
+local password = "password" --edit 
 local ot = 3
  while true do 
  term.clear()
@@ -11,7 +11,7 @@ local ot = 3
   print("Access Granted")
   sleep(1)
   term.setCursorPos(15,10)
-  print("Welcome Back Matthew!")
+  print("Welcome Back Player") -- Change to your MC username
   sleep(1)
   term.clear()
   term.setCursorPos(1,1)
