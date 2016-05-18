@@ -3,7 +3,7 @@ My Personal Computercraft Scripts
 
 Link to Mod: http://www.computercraft.info/
 
-#Note:These have only been run in Computercraft 1.6
+#These have only been run in Computercraft 1.6
 
 Links to http://turtlescripts.com
 
