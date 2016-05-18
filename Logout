@@ -1,4 +1,4 @@
-local lit = os.clock()
+local lit = os.clock() --(L)og (I)n (T)ime
 print("You were Logged in for " ..lit.. ".")
 sleep(1)
 term.clear()
