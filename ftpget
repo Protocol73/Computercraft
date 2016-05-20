@@ -1,7 +1,10 @@
-rednet.open("top")
 term.clear()
 term.setCursorPos(1,1)
-print("FTP wating to Receive to PC ID of: "..os.getComputerID())
+ write("Enter Wireless Modem Side:")
+ local input = read()
+rednet.open(input)
+sleep(0.25)
+print("FTP wating to Receive to PC ID of:"..os.getComputerID())
 
 while true do 
   id,msg = rednet.receive()
@@ -13,6 +16,7 @@ while true do
     file.close()
     print("The File " ..msg2.. " was Received.")
     sleep(3)
+    break
   else if
    msg == nil then
    print("Error")
