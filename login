@@ -1,5 +1,5 @@
 -- Made by Protocol73 https://github.com/Protocol73
--- Uncomment line two to stop ppl from ( ctrl + t ) "Terminating" the Program
+-- Uncomment line three to stop ppl from ( ctrl + t ) "Terminating" the Program
 --os.pullEvent = os.pullEventRaw
 local password = "password" --edit & Name startup to run at boot.
 local ot = 3
