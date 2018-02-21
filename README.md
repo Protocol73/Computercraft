@@ -11,6 +11,8 @@ I will be using pastebin links for now.
 
 Simple Door Lock: http://turtlescripts.com/project/gjdi35-Simple-Door-Lock
 
-Login & out: http://turtlescripts.com/project/gjdi37-Login-out
+Login: https://pastebin.com/jdcPw1BZ
+
+Logout: https://pastebin.com/FkBgAwdF
 
 Scrolling Text: https://pastebin.com/ni1FBGjz
