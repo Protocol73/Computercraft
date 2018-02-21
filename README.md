@@ -3,9 +3,11 @@ My Personal Computercraft Scripts
 
 Link to Mod: http://www.computercraft.info/
 
-#These have only been run in Computercraft 1.6
+--NOTE-- These have only been run in Computercraft 1.6
 
-Links to http://turtlescripts.com (Broken @ the Moment)
+Link to http://turtlescripts.com (Broken @ the Moment)
+
+I will be using pastebin links for now.
 
 Simple Door Lock: http://turtlescripts.com/project/gjdi35-Simple-Door-Lock
 
