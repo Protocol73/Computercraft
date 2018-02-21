@@ -1,7 +1,7 @@
 -- Made by Protocol73 https://github.com/Protocol73
 -- Uncomment line three to stop ppl from ( ctrl + t ) "Terminating" the Program
 --os.pullEvent = os.pullEventRaw
-local password = "password" --edit & Name startup to run at boot.
+local password = "password" -- edit & Name program 'startup' to run at boot.
 local ot = 3
  while true do 
  term.clear()
