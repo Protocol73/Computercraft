@@ -1,3 +1,5 @@
+-- A Simple Scrolling Text Program for ComputerCraft
+-- By Protocol73 https://github.com/Protocol73/Computercraft 
 local pos = 18
 Text = "Scrolling Text" --Set Text here.
 mon = peripheral.wrap("monitor_0") --Change to side if Monitor is not Connected over a network
