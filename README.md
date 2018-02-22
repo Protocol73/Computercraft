@@ -9,7 +9,7 @@ Link to http://turtlescripts.com (Broken @ the Moment)
 
 I will be using pastebin links for now.
 
-Simple Door Lock: http://turtlescripts.com/project/gjdi35-Simple-Door-Lock
+Simple Door Lock: https://pastebin.com/M3w3ngww
 
 Login: https://pastebin.com/jdcPw1BZ
 
