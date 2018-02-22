@@ -2,7 +2,7 @@
 -- Uncomment line three to stop ppl from ( ctrl + t ) "Terminating" the Program
 --os.pullEvent = os.pullEventRaw
 
--- Edit 7 & 8 to setup program.
+-- Edit lines 7 & 8 to setup program.
 
 local password = "changeme" --Name program 'startup' to run at boot.
 local user ="changeme" --Change to your MC username.
