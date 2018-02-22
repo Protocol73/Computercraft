@@ -2,7 +2,7 @@
 --os.pullEvent = os.pullEventRaw
 --Edit the varables set on lines 5-8 to setup the lock.
 
-local password = "changeme" --edit & Name program 'startup' to run at boot.
+local password = "changeme" -- Name program 'startup' to run at boot.
 local ot = 3 --(O)pen (T)ime in Seconds
 local side = "right left ect." --Set side of Redstone output
 user = "changeme" -- Change to your MC username
