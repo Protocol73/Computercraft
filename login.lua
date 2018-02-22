@@ -1,9 +1,13 @@
 -- Made by Protocol73 https://github.com/Protocol73
 -- Uncomment line three to stop ppl from ( ctrl + t ) "Terminating" the Program
 --os.pullEvent = os.pullEventRaw
-local password = "password" -- edit & Name program 'startup' to run at boot.
-local ot = 3
- while true do 
+
+-- Edit 7 & 8 to setup program.
+
+local password = "changeme" --Name program 'startup' to run at boot.
+local user ="changeme" --Change to your MC username.
+
+while true do 
  term.clear()
  term.setCursorPos(15,8)
  write("Login Code:")
@@ -14,7 +18,7 @@ local ot = 3
   print("Access Granted")
   sleep(1)
   term.setCursorPos(15,10)
-  print("Welcome Back Player") -- Change to your MC username
+  print("Welcome Back "..user..".")
   sleep(1)
   term.clear()
   term.setCursorPos(1,1)
