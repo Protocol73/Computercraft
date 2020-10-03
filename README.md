@@ -1,22 +1,21 @@
 # Computercraft
 My Personal Computercraft Scripts
 
+10/2020 Started KarcaOS
+(Just a folder with scrips for now)
+
 Link to Mod: http://www.computercraft.info/
 
---NOTE-- These have only been run in Computercraft 1.6
+----------------NOTES---------------------
 
-Link to http://turtlescripts.com (Broken @ the Moment)
+These have only been run/tested in Computercraft 1.6
 
-I will be using pastebin links for now.
+I use this to download them in-game.
+https://github.com/eric-wieser/computercraft-github
 
-To install run: pastebin get (code of URL) (name you want for the file)
 
-Example: pastebin get FkBgAwdF logout
 
-Simple Door Lock: https://pastebin.com/M3w3ngww
 
-Login: https://pastebin.com/jdcPw1BZ
 
-Logout: https://pastebin.com/FkBgAwdF
+Scrips are also on my pastebin @Protocol73
 
-Scrolling Text: https://pastebin.com/ni1FBGjz
