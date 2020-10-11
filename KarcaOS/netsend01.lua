@@ -1,8 +1,11 @@
-print("Starting ")
+--Written by Protocol73 For ComputerCraft 1.6
+NSver = "v0.6"
+P73Core = require ("Core/P73_core") --Import Core Functions
+--LocalCFG = require("CFG/NetSendCFG.lua") --Pull Config File
 
---Settings
+--Settings (Move to NetSent.cfg)
 clsAtStart = true
-modemside = "back"
+modemside = "top"
 reciverID = 1
 protocol = "TestNet"
 hostname = "Test-01"

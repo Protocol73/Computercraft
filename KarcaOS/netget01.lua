@@ -1,5 +1,7 @@
 --Written by Protocol73 For ComputerCraft 1.6
 NSver = "v0.6"
+P73core = require("Core/P73_core") --Import Core Functions
+--LocalCFG = require("CFG/NetGetCFG.lua") --Pull Config File
 
 --Settings (Move to NetGet.cfg)
 modemside = "top"
@@ -7,19 +9,6 @@ reciverID = nil
 protocol = nil
 hostname = os.getComputerLabel()
 Debug = true
-
---functions (Maybe move to P73_core_functions.lua)
-
-function Debugger(debugItem, debugdata) --For Output of Debug Data
-	if Debug == true then
-		print("---DEBUGGING OUTPUT---")
-		print("Debug data from",debugItem)
-		print(debugdata)
-		print("---END DEBUGGING OUTPUT---")
-	else
-		--Output no debug info if false
-	end
-end
 
 function RemoteRunLine(RunThis ,NETrepy2)
 	shell.run(RunThis)
@@ -34,7 +23,7 @@ if #tArgs < 1 then
     return
 end
 
-protocol = tArgs[1]
+protocol = tArgs[1] --Sets the protocol via the first Argument passed.
 
 --REDNET CODE
 print("Listening on " .. protocol .. " Protocol.")
@@ -45,7 +34,7 @@ NETsenderID, NETMessage, NETprotocol = rednet.receive()
 
 --Check Protocol of Data Received
 if NETprotocol == "TestNet" then
-	Debugger("Remote PC via TestNet:",NETMessage)
+	P73core.Debugger("Remote PC via TestNet:",NETMessage)
 	print("Received from PC-ID#",NETsenderID)
 elseif NETprotocol == "RemoteRun" then
 	NETrepy2 = NETsenderID
@@ -55,6 +44,6 @@ else
 	if Debug == false then
 		print("Set Debug = true to see info")
 	else
-		Debugger(NETprotocol, NETMessage)
+		P73core.Debugger(NETprotocol, NETMessage)
 	end
 end
