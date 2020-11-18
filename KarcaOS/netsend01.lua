@@ -24,8 +24,7 @@ if #tArgs < 2 then
 end
 --Set Protocol
 protocol = tArgs[1] --Sets protocol via the 1st Argument passed.
-DTS = tArgs[2]
-
+DTS = tArgs[2] --Set Data or Program
 
 function DTSChecks()
 	if DTS ~= nil then
@@ -41,7 +40,6 @@ function PresendChecks() --Presend Checks
 --PresendChecks()
 
 --Send it!
-
 rednet.open(modemside)
 rednet.broadcast(DTS,protocol)
 print("Sent Message via", protocol, "of:")
