@@ -18,7 +18,21 @@ function P73core.Debugger(debugItem, debugdata) --For Output of Debug Data
 		print("- - -END DEBUGGING OUTPUT - - -")
 	else
 		--Output no debug info if false
+		--Fix Start & end of Debug output.
 	end
+end
+
+function P73core.PChostname()
+	hostname = os.getComputerLabel()
+	if hostname == nil then
+		--auto name it
+		CCPCNum = os.getComputerID()
+		os.setComputerLabel("NetPC" .. CCPCNum)
+	else
+		--Name is set don't change it 
+	end
+	hostname = os.getComputerLabel()
+	return hostname
 end
 
 return P73core
