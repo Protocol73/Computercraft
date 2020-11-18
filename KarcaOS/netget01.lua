@@ -22,7 +22,7 @@ if #tArgs < 1 then
     print("Usage: NetGet 'Protocol'")
     return
 end
-
+--Set Protocol
 protocol = tArgs[1] --Sets the protocol via the first Argument passed.
 
 --REDNET CODE
