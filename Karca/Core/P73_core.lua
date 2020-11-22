@@ -6,7 +6,7 @@ local P73core =  {}
 
 --functions (P73_core.lua)
 function P73core.getVer()
-	NSver = "0.6"
+	KARCAver = "0.6"
 	return NSver
 end
 

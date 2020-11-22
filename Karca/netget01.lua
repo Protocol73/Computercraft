@@ -1,5 +1,5 @@
 --Written by Protocol73 For ComputerCraft 1.6
-NSver = "v0.6"
+KARCAver = "v0.6"
 P73core = require("Core/P73_core") --Import Core Functions
 --LocalCFG = require("CFG/NetGetCFG.lua") --Pull Config File
 
@@ -23,20 +23,20 @@ if #tArgs < 1 then
     return
 end
 --Set Protocol
-protocol = tArgs[1] --Sets the protocol via the first Argument passed.
+protocol = tArgs[1]--Set protocol via the 1st Argument.
 
 --REDNET CODE
 print("Listening on " .. protocol .. " Protocol.")
 activemodem = rednet.open(modemside)
 NETsenderID, NETMessage, NETprotocol = rednet.receive()
 
---Protocol's Defined (Maybe move to ML-NET.)
+--Protocol's Defined (Maybe move to NET-Protocols.cfg)
 
 --Check Protocol of Data Received
 if NETprotocol == "TestNet" then
 	P73core.Debugger("Remote PC via TestNet:",NETMessage)
 	print("Received from PC-ID#",NETsenderID)
-elseif NETprotocol == "RemoteRun" then
+elseif NETprotocol == "RemoteEXE" then
 	NETrepy2 = NETsenderID
 	RemoteRunLine(NETMessage,NETrepy2)
 else

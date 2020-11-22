@@ -1,5 +1,5 @@
 --Written by Protocol73 For ComputerCraft 1.6
-NSver = "v0.6"
+KARCAver = "v0.6"
 P73core = require ("Core/P73_core") --Import Core Functions
 --LocalCFG = require("CFG/NetSendCFG.lua") --Pull Config File
 
