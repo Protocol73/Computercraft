@@ -1,8 +1,15 @@
 # Computercraft
 My Personal Computercraft Scripts
 
-10/2020 Started KarcaOS
+10/2020 Started Karca Project
+
 (Just a folder with scrips for now)
+
+(K)WIK
+(A)ND
+(R)OBUST
+(C)OMMUNICATION
+(A)PPLICATIONS
 
 Link to Mod: http://www.computercraft.info/
 
