@@ -1,20 +1,16 @@
---Written by Protocol73 For ComputerCraft 1.6
-KARCAver = "v0.6"
-P73core = require ("Core/P73_core") --Import Core Functions
---LocalCFG = require("CFG/NetSendCFG.lua") --Pull Config File
+--Written by Protocol73 For ComputerCraft 1.6 +
+KARCAver = "v0.7"
+P73core = require("Core/P73_core") --Import Core Functions
+hostname = P73core.PChostname() --check/set hostname
+os.loadAPI("Karca/Config/nsCFG.lua") --Pull Config File
+cfgver = nsCFG.KARCAver
+Debug = nsCFG.Debug
 
---Settings (Move to NetSent.cfg)
-Debug = true
-clearAtStart = true
-modemside = "top"
-reciverID = 1
-protocol = nil
-hostname = P73core.PChostname() --set hostname
-DTS_Override = "Test Data from " .. hostname --Data to Send
+DTS_Override = "Test Data from " .. hostname --Used for Debugging
+-- ### ADD ### CheckVer(KARCAver)
 
-if clearAtStart == true then
-	term.clear()
-	term.setCursorPos(1,1)
+if nsCFG.clearAtStart == true then
+	P73core.clearTerm()
 end
 --Program Startup & Prerun Checks
 local tArgs = { ... }
@@ -23,6 +19,7 @@ if #tArgs < 2 then
     print("Usage: NetSent 'Protocol' 'Data'")
     return
 end
+
 --Set Protocol
 protocol = tArgs[1] --Set protocol via the 1st Argument.
 DataForSend = tArgs[2] --Set Data or Program for Protocol
@@ -33,7 +30,7 @@ function DTSChecks()
 	P73core.Debugger("Data to send:", DataForSend)
 	elseif DataForSend == nil then
 		P73core.Debugger("DTS was:", DataForSend)
-		DataForSend = DTS_Override
+		DataForSend = nsCFG.DTS_Override
 		P73core.Debugger("Using DTS_Override:", DataForSend)
 	end
 	--Check Called Protocol using DTS
@@ -53,7 +50,7 @@ function PresendChecks() --Presend Checks
 CFS, protocol = DTSChecks()
 
 --Send it!
-rednet.open(modemside)
+rednet.open(nsCFG.modemside)
 rednet.broadcast(CFS,protocol)
 print("Sent Message via", protocol, "of:")
 print(CFS)

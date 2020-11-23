@@ -1,19 +1,24 @@
---Written by Protocol73 For ComputerCraft 1.6
-KARCAver = "v0.6"
+--Written by Protocol73 For ComputerCraft 1.6 +
+KARCAver = "v0.7"
 P73core = require("Core/P73_core") --Import Core Functions
---LocalCFG = require("CFG/NetGetCFG.lua") --Pull Config File
+hostname = P73core.PChostname() --check/set hostname
+os.loadAPI("Karca/Config/ngCFG.lua") --Pull Config File
+cfgver = ngCFG.KARCAver
+Debug = ngCFG.Debug
 
---Settings (Move to NetGet.cfg)
-modemside = "top"
-reciverID = nil
-protocol = nil
-hostname = os.getComputerLabel()
-Debug = true
+-- ### ADD ### CheckVer(KARCAver)
 
-function RemoteRunLine(RunThis ,NETrepy2)
+-- Local Functions (Most will be moved to P73-NetCore.lua)[Someday]
+function RemoteEXELine(RunThis ,NETrepy2)
 	shell.run(RunThis)
 	--reply code here using NETrepy2
 end
+
+function CandC() --Clean up & Close
+	activemodem = rednet.close(ngCFG.modemside)
+	--put stuff here
+end
+-- End Local Functions
 
 --Program Startup & Prerun Checks
 local tArgs = { ... }
@@ -22,15 +27,32 @@ if #tArgs < 1 then
     print("Usage: NetGet 'Protocol'")
     return
 end
---Set Protocol
+--Get the set Protocol
 protocol = tArgs[1]--Set protocol via the 1st Argument.
+other = tArgs[2] --For later Usage
 
---REDNET CODE
-print("Listening on " .. protocol .. " Protocol.")
-activemodem = rednet.open(modemside)
+function PrerunChecks() --Presend Checks
+	if protocol == "RemoteEXE" then --Warn if Protocol is RemoteEXE
+		RemoteAccept = P73core.confirmYN(ngCFG.RemoteWarnMsg)
+		if RemoteAccept == true then
+			print("Okay, Using RemoteEXE Protocol.")
+		else
+			print("Okay, Not using RemoteEXE...")
+			print("Shuting down NetGet Program.")
+			print("Press any key to quit & reboot...")
+			os.pullEvent("char")
+			os.reboot() --Replace This
+		end
+	end
+end
+
+--REDNET code for Receiving data
+PrerunChecks()
+print("Listening via the " .. protocol .. " Protocol.")
+activemodem = rednet.open(ngCFG.modemside)
 NETsenderID, NETMessage, NETprotocol = rednet.receive()
 
---Protocol's Defined (Maybe move to NET-Protocols.cfg)
+--Protocol's Defined (Move to NET-Protocols.lua)
 
 --Check Protocol of Data Received
 if NETprotocol == "TestNet" then
@@ -38,7 +60,7 @@ if NETprotocol == "TestNet" then
 	print("Received from PC-ID#",NETsenderID)
 elseif NETprotocol == "RemoteEXE" then
 	NETrepy2 = NETsenderID
-	RemoteRunLine(NETMessage,NETrepy2)
+	RemoteEXELine(NETMessage,NETrepy2)
 else
 	print("Got Message via unknown protocol")
 	if Debug == false then
@@ -47,3 +69,4 @@ else
 		P73core.Debugger(NETprotocol, NETMessage)
 	end
 end
+
