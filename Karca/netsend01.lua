@@ -16,7 +16,7 @@ end
 local tArgs = { ... }
 
 if #tArgs < 2 then
-    print("Usage: NetSent 'Protocol' 'Data'")
+    print("Usage: NetSent Protocol 'Data/Args' ")
     return
 end
 

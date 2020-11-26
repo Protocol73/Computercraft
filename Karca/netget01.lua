@@ -24,7 +24,7 @@ end
 local tArgs = { ... }
 
 if #tArgs < 1 then
-    print("Usage: NetGet 'Protocol'")
+    print("Usage: NetGet 'Protocol' ")
     return
 end
 --Get the set Protocol
