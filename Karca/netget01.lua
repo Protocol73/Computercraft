@@ -6,9 +6,10 @@ os.loadAPI("Karca/Config/ngCFG.lua") --Pull Config File
 cfgver = ngCFG.KARCAver
 Debug = ngCFG.Debug
 
+
 -- ### ADD ### CheckVer(KARCAver)
 
--- Local Functions (Most will be moved to P73-NetCore.lua)[Someday]
+-- Local Functions (Most moved to P73-NetCore.lua)
 function RemoteEXELine(RunThis ,NETrepy2)
 	shell.run(RunThis)
 	--reply code here using NETrepy2
@@ -18,6 +19,14 @@ function CandC() --Clean up & Close
 	activemodem = rednet.close(ngCFG.modemside)
 	--put stuff here
 end
+
+function loopcheck()
+	if ngCFG.loop == true then
+	-- Check if looping mode is enabled
+	-- Make it loop  ? IDK ?
+	end
+end
+
 -- End Local Functions
 
 --Program Startup & Prerun Checks
@@ -70,3 +79,4 @@ else
 	end
 end
 
+--END Karca/NetGet

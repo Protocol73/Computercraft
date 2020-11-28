@@ -7,6 +7,7 @@ cfgver = nsCFG.KARCAver
 Debug = nsCFG.Debug
 
 DTS_Override = "Test Data from " .. hostname --Used for Debugging
+
 -- ### ADD ### CheckVer(KARCAver)
 
 if nsCFG.clearAtStart == true then
@@ -43,7 +44,7 @@ function DTSChecks()
 end
 
 function PresendChecks() --Presend Checks
-	
+	--Do some Verifcation 
 	end
 
 --PresendChecks()
@@ -54,3 +55,5 @@ rednet.open(nsCFG.modemside)
 rednet.broadcast(CFS,protocol)
 print("Sent Message via", protocol, "of:")
 print(CFS)
+
+--END Karca/NetSend
