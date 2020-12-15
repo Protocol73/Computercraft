@@ -1,6 +1,6 @@
 --Written by Protocol73 For ComputerCraft 1.6 +
 --P73_core.lua
-local P73core =  {}
+local P73core = {}
 local KARCAver = "0.8"
 
 --Must Get Settings from .cfg here too

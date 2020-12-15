@@ -1,6 +1,6 @@
 --Written by Protocol73 For ComputerCraft 1.6+
 --NET-Protocols.lua
-local NP_73 =  {}
+local NP_73 = {}
 local KARCAver = "0.8"
 
 function NP_73.PrerunChecks(protocol) --User prompt's & checks
@@ -40,6 +40,13 @@ function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 	end
 end
 
+function NP_73.Test()
+	print("Worked")
+	return true
+end
+
+
+NP_73.Test()
 -- if endlessloop == true then
 --	loopmode = true
 --elseif cfgLoop == true then
