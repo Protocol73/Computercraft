@@ -40,13 +40,8 @@ function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 	end
 end
 
-function NP_73.Test()
-	print("Worked")
-	return true
-end
+return NP_73
 
-
-NP_73.Test()
 -- if endlessloop == true then
 --	loopmode = true
 --elseif cfgLoop == true then
