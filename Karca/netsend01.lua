@@ -1,6 +1,8 @@
 --Written by Protocol73 For ComputerCraft 1.6 +
-KARCAver = "v0.7"
+--netsend.lua
+KARCAver = "v0.8"
 P73core = require("Core/P73_core") --Import Core Functions
+NP_73 = require("core/NET_Protocols") --Import Protocol
 hostname = P73core.PChostname() --check/set hostname
 os.loadAPI("Karca/Config/nsCFG.lua") --Pull Config File
 cfgver = nsCFG.KARCAver
