@@ -4,7 +4,7 @@
 -- BEGIN NetGet CFG --
 KARCAver = "v0.8"
 modemside = "top"
-loop = false --Stay running
+Loop = false --Stay running
 Debug = true --enable debug output
 RemoteLoop = false --enable looping
 RemoteWarnMsg = "\n##### Warning! #####\n### This will allow a Remote PC ### \n### to run anythiing on your system! ###\n"
