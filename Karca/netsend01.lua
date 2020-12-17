@@ -1,23 +1,27 @@
 --Written by Protocol73 For ComputerCraft 1.6 +
-KARCAver = "v0.7"
+--netsend.lua
+KARCAver = 0.8
 P73core = require("Core/P73_core") --Import Core Functions
+NP_73 = require("core/NET_Protocols") --Import Protocol
 hostname = P73core.PChostname() --check/set hostname
 os.loadAPI("Karca/Config/nsCFG.lua") --Pull Config File
 cfgver = nsCFG.KARCAver
 Debug = nsCFG.Debug
-
 DTS_Override = "Test Data from " .. hostname --Used for Debugging
-
--- ### ADD ### CheckVer(KARCAver)
 
 if nsCFG.clearAtStart == true then
 	P73core.clearTerm()
 end
+
+Mainver_KARCAver = KARCAver 
+P73core.getVer()
+
+
 --Program Startup & Prerun Checks
 local tArgs = { ... }
 
 if #tArgs < 2 then
-    print("Usage: NetSent 'Protocol' 'Data'")
+    print("Usage: NetSent Protocol 'Data/Args' ")
     return
 end
 

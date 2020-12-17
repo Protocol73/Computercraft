@@ -1,22 +1,22 @@
 --Written by Protocol73 For ComputerCraft 1.6 +
-local P73core =  {}
-local KARCAver = "0.7"
+--P73_core.lua
+local P73core = {}
+local KARCAver = 0.8
 
---Must Get Settings from .cfg here too
+--Set Version info for P73core.getVer()
+P73core_KARCAver = KARCAver
+
+--Must Get Settings from .cfg here too?
 --Debug = true -- (Temp Hardcode Value in function)
 
 --functions (P73_core.lua)
-function P73core.getVer()
-	-- ### ADD ### --
-	--check if core & program version are same.
-	return NSver
-end
-function P73core.clearTerm()
+
+function P73core.clearTerm() --Clear & Reset Terminal
 	term.clear()
 	term.setCursorPos(1,1)
 end
 
-function P73core.confirmYN(warnmsg)
+function P73core.confirmYN(warnmsg) --Warn & Ask to Continue
 	print(warnmsg)
 	term.write("### Continue? (y/n)")
 	local input = read()
@@ -29,14 +29,43 @@ end
 
 function P73core.Debugger(debugItem, debugdata) --For Output of Debug Data
 	if Debug == true then
-		print("- - - DEBUGGING OUTPUT - - -")
+		string.rep("-",38)
+		print("---v---v---DEBUGGING OUTPUT---v---v---")
 		print("Debug data from",debugItem)
 		print(debugdata)
-		print("- - -END DEBUGGING OUTPUT - - -")
+		print("---^---^---DEBUGGING OUTPUT---^---^---")
+		string.rep("-",38)
 	else
 		--Output no debug info if false
 		--Fix Start & end of Debug output.
 	end
+end
+
+function P73core.getVer() -- Version Checking for KARCA
+	VerChecked = false
+	if P73core_KARCAver == Mainver_KARCAver then
+		Check1 = true
+	else
+		print("Failed KARCA version Check")
+		print("Core:" .. P73core_KARCAver)
+		print("Main:" .. Mainver_KARCAver)
+		Check1 = false
+	end
+	if P73core_KARCAver == NP_73_KARCAver then
+		Check2 = true
+	else
+		Check2 = false
+		print("Failed KARCA version Check")
+		print("P73_core:" .. P73core_KARCAver)
+		print("Net_Protocols:" .. NP_73_KARCAver)
+	end
+	if Check1 and Check2 == true then 
+		VerChecked = true
+	else
+		VerChecked = false
+		error("Version Checks Failed")
+	end
+	return VerChecked
 end
 
 function P73core.PChostname()
@@ -56,3 +85,5 @@ function P73core.PChostname()
 end
 
 return P73core
+
+--END Karca/P73_core
