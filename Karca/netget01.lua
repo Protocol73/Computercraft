@@ -44,3 +44,5 @@ print("Listening via the " .. protocol .. " Protocol.")
 activemodem = rednet.open(ngCFG.modemside)
 NETsenderID, NETMessage, NETprotocol = rednet.receive()
 NP_73.Protocol(NETprotocol,NETMessage)
+
+--END Karca/NetGet

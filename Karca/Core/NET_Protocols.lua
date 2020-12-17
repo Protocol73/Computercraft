@@ -26,6 +26,11 @@ function NP_73.PrerunChecks(protocol) --User prompt's & checks
 	end
 end
 
+--Protocol Documentation
+--TestNet: for Testing/Debugging
+--RemoteEXE: Run a Program on a Remote PC
+--Unknown: If Data Received is of unknown protocol
+
 function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 	if protocol == "TestNet" then
 		P73core.Debugger("Remote PC via TestNet:",NETMessage)
@@ -33,6 +38,8 @@ function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 	elseif protocol == "RemoteEXE" then
 		NETrepy2 = NETsenderID
 		RemoteEXELine(args,NETrepy2)
+	elseif protocol == "Other1"
+		
 	else
 		print("Got Message via unknown protocol")
 		if Debug == false then
@@ -44,11 +51,3 @@ function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 end
 
 return NP_73
-
--- if endlessloop == true then
---	loopmode = true
---elseif cfgLoop == true then
---	loopmode = true
---else
---	endlessloop = false
---end

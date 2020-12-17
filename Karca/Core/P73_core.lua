@@ -10,7 +10,38 @@ P73core_KARCAver = KARCAver
 --Debug = true -- (Temp Hardcode Value in function)
 
 --functions (P73_core.lua)
-function P73core.getVer()
+
+function P73core.clearTerm() --Clear & Reset Terminal
+	term.clear()
+	term.setCursorPos(1,1)
+end
+
+function P73core.confirmYN(warnmsg) --Warn & Ask to Continue
+	print(warnmsg)
+	term.write("### Continue? (y/n)")
+	local input = read()
+	if input == "y" then
+		return true
+	else
+		return false
+	end
+end
+
+function P73core.Debugger(debugItem, debugdata) --For Output of Debug Data
+	if Debug == true then
+		string.rep("-",38)
+		print("---v---v---DEBUGGING OUTPUT---v---v---")
+		print("Debug data from",debugItem)
+		print(debugdata)
+		print("---^---^---DEBUGGING OUTPUT---^---^---")
+		string.rep("-",38)
+	else
+		--Output no debug info if false
+		--Fix Start & end of Debug output.
+	end
+end
+
+function P73core.getVer() -- Version Checking for KARCA
 	VerChecked = false
 	if P73core_KARCAver == Mainver_KARCAver then
 		Check1 = true
@@ -35,36 +66,6 @@ function P73core.getVer()
 		error("Version Checks Failed")
 	end
 	return VerChecked
-end
-
-function P73core.clearTerm()
-	term.clear()
-	term.setCursorPos(1,1)
-end
-
-function P73core.confirmYN(warnmsg)
-	print(warnmsg)
-	term.write("### Continue? (y/n)")
-	local input = read()
-	if input == "y" then
-		return true
-	else
-		return false
-	end
-end
-
-function P73core.Debugger(debugItem, debugdata) --For Output of Debug Data
-	if Debug == true then
-		string.rep("-",38)
-		print("---v---v---DEBUGGING OUTPUT---v---v---")
-		print("Debug data from",debugItem)
-		print(debugdata)
-		print("---^---^---DEBUGGING OUTPUT---^---^---")
-		string.rep("-",38)
-	else
-		--Output no debug info if false
-		--Fix Start & end of Debug output.
-	end
 end
 
 function P73core.PChostname()

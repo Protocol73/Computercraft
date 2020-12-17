@@ -60,3 +60,5 @@ rednet.open(nsCFG.modemside)
 rednet.broadcast(CFS,protocol)
 print("Sent Message via", protocol, "of:")
 print(CFS)
+
+--END Karca/NetSend
