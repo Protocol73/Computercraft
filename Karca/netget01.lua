@@ -1,6 +1,6 @@
 --Written by Protocol73 For ComputerCraft 1.6 +
 --netget.lua
-KARCAver = "v0.8"
+KARCAver = 0.8
 P73core = require("Core/P73_core") --Import Core Functions
 NP_73 = require("Core/NET_Protocols") --Import Protocols
 hostname = P73core.PChostname() --check/set hostname
@@ -9,7 +9,9 @@ cfgLoop = ngCFG.Loop
 cfgver = ngCFG.KARCAver
 Debug = ngCFG.Debug
 
--- ### ADD ### CheckVer(KARCAver)
+--Version info for P73core.getVer()
+Mainver_KARCAver = KARCAver
+P73core.getVer()
 
 -- Local Functions (Most will be moved to P73-NetCore.lua)[Someday]
 function RemoteEXELine(RunThis ,NETrepy2)

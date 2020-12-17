@@ -1,7 +1,10 @@
 --Written by Protocol73 For ComputerCraft 1.6+
 --NET-Protocols.lua
 local NP_73 = {}
-local KARCAver = "0.8"
+local KARCAver = 0.8
+
+--Set Version info for P73core.getVer()
+NP_73_KARCAver = KARCAver
 
 function NP_73.PrerunChecks(protocol) --User prompt's & checks
 	if protocol == "RemoteEXE" then --Warn if Protocol is RemoteEXE

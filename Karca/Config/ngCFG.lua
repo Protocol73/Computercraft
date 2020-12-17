@@ -2,7 +2,7 @@
 --ngCFG.lua
 
 -- BEGIN NetGet CFG --
-KARCAver = "v0.8"
+KARCAver = 0.8
 modemside = "top"
 Loop = false --Stay running
 Debug = true --enable debug output
