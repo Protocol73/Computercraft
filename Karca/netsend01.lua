@@ -7,7 +7,6 @@ hostname = P73core.PChostname() --check/set hostname
 os.loadAPI("Karca/Config/nsCFG.lua") --Pull Config File
 cfgver = nsCFG.KARCAver
 Debug = nsCFG.Debug
-
 DTS_Override = "Test Data from " .. hostname --Used for Debugging
 
 if nsCFG.clearAtStart == true then
@@ -49,7 +48,7 @@ function DTSChecks()
 end
 
 function PresendChecks() --Presend Checks
-	
+	--Do some Verifcation 
 	end
 
 --PresendChecks()
