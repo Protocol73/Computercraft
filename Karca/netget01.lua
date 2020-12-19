@@ -24,7 +24,7 @@ function help()
 	print("NetGet 'Protocol' Optional: Loop Mode")
 	print("Avalable Protocols are:\n")
 	NP_73.printProtocols()
-	print("\nLoop Mode's Options are:")
+	print("\nLoop Mode can be blank or 'true'")
 	print("EX: netget TestNet true\n")
 end
 
