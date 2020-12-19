@@ -38,8 +38,8 @@ function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 	elseif protocol == "RemoteEXE" then
 		NETrepy2 = NETsenderID
 		RemoteEXELine(args,NETrepy2)
-	elseif protocol == "Other1"
-		
+	elseif protocol == "Other1" then
+		print("For next Protocol")	
 	else
 		print("Got Message via unknown protocol")
 		if Debug == false then
