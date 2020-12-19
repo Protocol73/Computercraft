@@ -26,10 +26,11 @@ function NP_73.PrerunChecks(protocol) --User prompt's & checks
 	end
 end
 
---Protocol Documentation
---TestNet: for Testing/Debugging
---RemoteEXE: Run a Program on a Remote PC
---Unknown: If Data Received is of unknown protocol
+function NP_73.printProtocols() --Protocol Documentation
+	print("TestNet: for Testing/Debugging")
+	print("RemoteEXE: Run a Program on a Remote PC")
+	print("Unknown: If Data Received is of unknown protocol")
+end
 
 function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 	if protocol == "TestNet" then

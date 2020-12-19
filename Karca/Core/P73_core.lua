@@ -30,9 +30,9 @@ end
 function P73core.Debugger(debugItem, debugdata) --For Output of Debug Data
 	if Debug == true then
 		string.rep("-",38)
-		print("---v---v---DEBUGGING OUTPUT---v---v---")
+		print("---v---v---DEBUGGING OUTPUT---v---v---\n")
 		print("Debug data from",debugItem)
-		print(debugdata)
+		print(debugdata,"\n")
 		print("---^---^---DEBUGGING OUTPUT---^---^---")
 		string.rep("-",38)
 	else

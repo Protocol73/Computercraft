@@ -16,7 +16,6 @@ end
 Mainver_KARCAver = KARCAver 
 P73core.getVer()
 
-
 --Program Startup & Prerun Checks
 local tArgs = { ... }
 
@@ -32,7 +31,7 @@ ExtaParms = tArgs[3] --For Protocols that need a third argument
 
 function DTSChecks()
 	if DataForSend~= nil then
-	P73core.Debugger("Data to send:", DataForSend)
+		P73core.Debugger("Data to send:", DataForSend)
 	elseif DataForSend == nil then
 		P73core.Debugger("DTS was:", DataForSend)
 		DataForSend = nsCFG.DTS_Override
