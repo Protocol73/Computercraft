@@ -13,21 +13,34 @@ if nsCFG.clearAtStart == true then
 	P73core.clearTerm()
 end
 
+function help()
+	P73core.clearTerm()
+	print("NetSend Help")
+	print("NetSend 'Protocol'")
+	print("Avalable Protocols are:\n")
+	NP_73.printProtocols()
+	print("\nLoop Mode can be blank or 'true'")
+	print("EX: netsend TestNet 'Testing 123'\n")
+end
+
 Mainver_KARCAver = KARCAver 
 P73core.getVer()
 
 --Program Startup & Prerun Checks
 local tArgs = { ... }
+protocol = tArgs[1] --Set protocol via the 1st Argument.
+DataForSend = tArgs[2] --Set Data or Program for Protocol
+ExtaParms = tArgs[3] --For Protocols that need a third argument
+
+if protocol == 'help' then
+	help()
+	error("Printed Help, Exiting",0)
+end
 
 if #tArgs < 2 then
     print("Usage: NetSent Protocol 'Data/Args' ")
     return
 end
-
---Set Protocol
-protocol = tArgs[1] --Set protocol via the 1st Argument.
-DataForSend = tArgs[2] --Set Data or Program for Protocol
-ExtaParms = tArgs[3] --For Protocols that need a third argument
 
 function DTSChecks()
 	if DataForSend~= nil then
@@ -45,6 +58,9 @@ function DTSChecks()
 	--Return CFS & Protocol it's Cleared for.
 	return CFS,protocol
 end
+
+
+
 
 function PresendChecks() --Presend Checks
 	--Do some Verifcation 
