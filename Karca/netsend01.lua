@@ -16,11 +16,12 @@ end
 function help()
 	P73core.clearTerm()
 	print("NetSend Help")
-	print("NetSend 'Protocol'")
+	print("NetSend 'Protocol' 'Data to send' 'PC-ID' ")
 	print("Avalable Protocols are:\n")
 	NP_73.printProtocols()
-	print("\nLoop Mode can be blank or 'true'")
-	print("EX: netsend TestNet 'Testing 123'\n")
+	print("\n'PC-ID' should be the ID you want to send to")
+	print("\n If no PC-ID is entered you will broadcast to all")
+	print("EX: netsend TestNet 'Testing 123' '5'\n")
 end
 
 Mainver_KARCAver = KARCAver 
@@ -30,7 +31,8 @@ P73core.getVer()
 local tArgs = { ... }
 protocol = tArgs[1] --Set protocol via the 1st Argument.
 DataForSend = tArgs[2] --Set Data or Program for Protocol
-ExtaParms = tArgs[3] --For Protocols that need a third argument
+Receiver = tArgs[3] --PC hostname or ID
+ExtaParms = tArgs[4] --For Protocols that need a fourth argument
 
 if protocol == 'help' then
 	help()
@@ -38,7 +40,7 @@ if protocol == 'help' then
 end
 
 if #tArgs < 2 then
-    print("Usage: NetSent Protocol 'Data/Args' ")
+    print("Usage: NetSent Protocol 'Data/Args' PC-ID ")
     return
 end
 
@@ -59,19 +61,25 @@ function DTSChecks()
 	return CFS,protocol
 end
 
-
-
-
 function PresendChecks() --Presend Checks
-	--Do some Verifcation 
+	--Do some Verifcation
+	CFS, protocol = DTSChecks()
+	if Receiver == nil then
+		P73core.confirmYN("No PC-ID set:\nAre you sure you want to broadcast?")
 	end
+end
 
---PresendChecks()
-CFS, protocol = DTSChecks()
+PresendChecks()
 
 --Send it!
 rednet.open(nsCFG.modemside)
-rednet.broadcast(CFS,protocol)
+if Receiver ~= nil then
+	ReceiverID = tonumber(Receiver)
+	rednet.send(ReceiverID,CFS,protocol)
+else
+	rednet.broadcast(CFS,protocol)
+end
+
 print("Sent Message via", protocol, "of:")
 print(CFS)
 

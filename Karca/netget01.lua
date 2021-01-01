@@ -18,6 +18,10 @@ function RemoteEXELine(RunThis ,NETrepy2)
 	--reply code here using NETrepy2
 end
 
+function NETrepy2(PCID,Data) --Lazy man's TCP
+	rednet.send(PCID,Data,"NETrepy")
+end
+
 function help()
 	P73core.clearTerm()
 	print("NetGet Help")
@@ -58,7 +62,7 @@ function main()
 	--REDNET code for Receiving data
 	print("Listening via the " .. protocol .. " Protocol.")
 	activemodem = rednet.open(ngCFG.modemside)
-	NETsenderID, NETMessage, NETprotocol = rednet.receive()
+	NETsenderID, NETMessage, NETprotocol = rednet.receive(protocol)
 	NP_73.Protocol(NETprotocol,NETMessage)
 end
 

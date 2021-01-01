@@ -52,3 +52,5 @@ function NP_73.Protocol(protocol,args) --Check Protocol of Data Received
 end
 
 return NP_73
+
+--END Karca/NET_Protocols
