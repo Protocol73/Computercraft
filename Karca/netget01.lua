@@ -15,7 +15,6 @@ P73core.getVer()
 -- Local Functions (Most moved to P73-NetCore.lua)
 function RemoteEXELine(RunThis ,NETrepy2)
 	shell.run(RunThis)
-	--reply code here using NETrepy2
 end
 
 function NETreply2(Data) --Lazy man's TCP
