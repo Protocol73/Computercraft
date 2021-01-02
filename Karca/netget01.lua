@@ -18,8 +18,13 @@ function RemoteEXELine(RunThis ,NETrepy2)
 	--reply code here using NETrepy2
 end
 
-function NETrepy2(PCID,Data) --Lazy man's TCP
-	rednet.send(PCID,Data,"NETrepy")
+function NETreply2(Data) --Lazy man's TCP
+	replyProtocol = "NETreply"
+	MyID = os.getComputerID()
+	replyCode = 0 --Temp Hardcode  <-- REPLACE
+	replyData = hostname .." ID:" .. MyID .. " Returned:" .. replyCode
+	rednet.send(NETsenderID,replyData,replyProtocol)
+	P73core.Debugger("NETreply2\nReply sent from PC-ID:" .. MyID, "To PC-ID:" .. NETsenderID)
 end
 
 function help()
@@ -64,6 +69,7 @@ function main()
 	activemodem = rednet.open(ngCFG.modemside)
 	NETsenderID, NETMessage, NETprotocol = rednet.receive(protocol)
 	NP_73.Protocol(NETprotocol,NETMessage)
+	NETreply2(0)-- reply code
 end
 
 function mainloop()

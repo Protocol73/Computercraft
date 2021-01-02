@@ -65,22 +65,51 @@ function PresendChecks() --Presend Checks
 	--Do some Verifcation
 	CFS, protocol = DTSChecks()
 	if Receiver == nil then
-		P73core.confirmYN("No PC-ID set:\nAre you sure you want to broadcast?")
+		NoIDconfirm = P73core.confirmYN("No PC-ID set:\nAre you sure you want to broadcast?")
+		if NoIDconfirm == false then
+			error("OK,Canceled",0)
+		end
 	end
 end
 
-PresendChecks()
-
---Send it!
-rednet.open(nsCFG.modemside)
-if Receiver ~= nil then
-	ReceiverID = tonumber(Receiver)
-	rednet.send(ReceiverID,CFS,protocol)
-else
-	rednet.broadcast(CFS,protocol)
+function NETreply()
+	replyProtocol = "NETreply"
+	NETreplyID, NETreplyCode = rednet.receive(replyProtocol,10)
+	if NETreplyID == nil then
+		error("No reply in 10s",0)
+	end
+	P73core.Debugger("from:" .. NETreplyID,NETreplyCode)
+	if NETreplyID == ReceiverID then
+		print("Sent Message via", protocol, "of:")
+		print(CFS)
+		--Message was received by PC Expected
+		--Check data from Reply
+	elseif NETbroadcast == true then
+		--Message was broadcast so...
+		--print Reply ID received.
+		print("Broadcast Message via", protocol,"of ")
+		print(CFS)
+		print("Reply from:" .. NETreplyID)
+		print("Data/Code back was:" .. NETreplyCode)
+	else
+		--Unexpected PC-ID replied
+		error("Expected reply from" .. ReceiverID .."got" .. NETreplyID)
+	end
 end
 
-print("Sent Message via", protocol, "of:")
-print(CFS)
+function main()
+	PresendChecks()
+	rednet.open(nsCFG.modemside)
+	if Receiver ~= nil then
+		ReceiverID = tonumber(Receiver)
+		rednet.send(ReceiverID,CFS,protocol) --send it
+	else
+		rednet.broadcast(CFS,protocol) --broadcast it
+		NETbroadcast = true
+	end
+	NETreply()
+end
+
+main()
 
 --END Karca/NetSend
